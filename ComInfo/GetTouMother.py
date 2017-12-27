@@ -12,10 +12,10 @@ from numpy.random import *
 sys.setdefaultencoding("utf-8")
 
 #FileOpen
-d = open('Data/Toushou2.csv','w')
+d = open('Data/ToushouMothers.csv','w')
 DataWrite = csv.writer(d)
 
-#Toushou2's TOProw
+#Mothers's TOProw
 TOP = ["Num","Code","Name","URL"]
 DataWrite.writerow(TOP)
 
@@ -24,9 +24,9 @@ PageCount = 1
 NumInPage = 1
 Number = 0
 
-while PageCount < 12:
+while PageCount < 7:
     print("PageCount = " + str(PageCount))
-    r = requests.get("http://www.jpubb.com/list/list.php?listed=1&se=tou2&pageID=" + str(PageCount))
+    r = requests.get("http://www.jpubb.com/list/list.php?listed=1&se=toum&pageID=" + str(PageCount))
 
     bs = BeautifulSoup(r.text, "html.parser")
     sample = bs.find("table").find_all("tr")
